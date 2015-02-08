@@ -1,5 +1,7 @@
-This is the second assignment for Data Visualization class 2015. \n
-It includes css style sheet and javascript code for a personal website for me. \n
+This is the second assignment for Data Visualization class 2015.
 
-Author: Rutwij Devashrayee \n
+It includes css style sheet and javascript code for a personal website for me.
+
+Author: Rutwij Devashrayee 
+
 Instructor (s): Susan E. McGregor, Joanna S. Kao
