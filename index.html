@@ -16,105 +16,8 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="stylesheet" href="./style.css"
 		
-		<style>
-			/*
-			 * Class defining style for common elements across the entire body of the website
-			 *
-			 * Color scheme used to set background color, font color, family and size across the website 
-			 * 
-			 */
-			body {
-				background-color: #D3D347;
-				color: #8F8F0D;
-				font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-				font-size: 15px;
-			}
-			/*
-			 * Defining the header styles
-			 * 
-			 * Alignment to the center and font weight(boldness) set using numerical value
-			 */
-			h1, h2 {
-				font-weight: 600;
-				text-align: center;
-			}
-			
-			/*
-			 * Class defining style for navigation bar
-			 * 
-			 * The navigation bar is displayed as defined by the color scheme and 
-			 * with solid border of light color to see the contrast
-			 * there is css3 element called box-shadow using the same border color
-			 * margin is to keep the nav element separated from the rest of the elements
-			 * width is the percentage of width of the page
-			 * line-height is for set the height of the entire navigation box 
-			 */
-			nav{
-				background-color: #FFFFA3;
-				border: 1px solid #dedede;
-				border-radius: 8px;
-				box-shadow: 1px 1px 2px #dedede;
-				color: #8F8F0D;
-				display: block;
-				line-height: 48px;
-				margin: 8px 22px 8px 22px;
-				width: 95%; 
-			}
-			
-			/*
-			 * The class defines the parameters for the list within the navigation bar
-			 *
-			 */
-			nav ul {
-				margin: 0;
-				padding: 0;
-			}
-
-			/*
-			 * The class defines the parameters for individual items of the list
-			 * inline-block keeps it in one horizontal line without the use of float
-			 * list-style none is used to not have to deal with bullet points/numbers etc.
-			 */
-			nav ul li {
-				display: inline-block;
-				list-style-type: none;
-			}
-			
-			/*
-			 *  This class defines the hover color for the navigation items
-			 *
-			 */
-			nav > ul > li:hover {
-          		background-color: #2A2A00;
-        	}
-
-			/*
-			 * This class defines the properties for the text inside the navigation items
-			 * 
-			 * text decoration is to get rid of the underline for hyperlinks
-			 */
-			nav > ul > li > a {
-				color: #B5B526;
-				padding: 0 24px;
-				text-decoration: none;
-			}
-			
-			/*
-			 * Class defining style for photoSlider
-			 *
-			 */
-			.photoSlider{
-				
-			}
-			
-			/*
-			 * Class defining style for the text clips/description
-			 */
-			.description{
-				
-			}
-		</style>
 	</head>
 
 	<body>
@@ -129,11 +32,13 @@
 					<!-- Navigation toolbar with stylized navigation button -->
 					<ul>
 						<li><a href="/">Home</a></li> 
+						<!-- placeholder links for future -->
 						<li><a href="./about.html">About</a></li>
 						<li><a href="./contact.html">Contact</a></li> 
 					</ul>
 				</nav>
 				
+				<!-- placeholder divs for future references -->
 				<!-- The front page of the website would have photoSlider for my work-->
 				<div class="photoSlider">
 					
@@ -157,6 +62,18 @@
 					audioVisual:["CS6 Suite","Video Production and Editing","Journalistic Photography"],
 					language:["English","Hindi","Urdu","Gujarati"]
 				};
+						
+				console.log("Name: " + name);
+				console.log("Age: " + age)
+				console.log("First Job: " + jobs[0]);
+				console.log(skills.data);
+				
+				console.log(skills.audioVisual);
+				skills.audioVisual[3] = "Radio Production";
+				console.log(skills.audioVisual);
+				
+				console.log("Age (as of 2016):" + (age +1));
+				
 			</script>
 			<footer>
 				<p>
