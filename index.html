@@ -17,69 +17,149 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 		<link rel="stylesheet" href="./style.css"
-		
-	</head>
 
-	<body>
-		<div>
-			<header>
-				<!-- the h1 tag at the top -->
-				<h1>Personal Website of Rutwij Devashrayee</h1>
-				<!-- the h2 tag at the right beneath it (like a blurb) -->
-				<h2>Assignment for Data Visualization class by Susan E. McGregor</h2>
+		</head>
+
+		<body>
+		<script>
+			/*
+			 * Variables defined below illustrate my personal resume
+			 */
+			var name = "Rutwij Devashrayee";
+			var age = 25;
+			var jobs = ["Junior Developer, Ontario Financing Authority", "Test Developer, CaseWare International Inc."];
+			var skills = {
+				data : ["Scraping", "Visuzalization", "JavaScript", "Multi-platform Programmin with languages like C#, Java, Python"],
+				audioVisual : ["CS6 Suite", "Video Production and Editing", "Journalistic Photography"],
+				language : ["English", "Hindi", "Urdu", "Gujarati"]
+			};
+
+			console.log("Name: " + name);
+			console.log("Age: " + age)
+			console.log("First Job: " + jobs[0]);
+			console.log(skills.data);
+
+			console.log(skills.audioVisual);
+			skills.audioVisual[3] = "Radio Production";
+			console.log(skills.audioVisual);
+
+			console.log("Age (as of 2016):" + (age + 1));
+			
+			/*
+			 * Assignment 3 work
+			 *
+			 * Create a sortable and selectable photo slider data processors.
+			 * 
+			 * The arrays photos and photos_2 are the photos residing in the img folder
+			 * 
+			 */
+			var photos = [{
+				name: "startrail",
+				location: "algonquin, ontario"
+			}, {
+				name: "a rasta carpenter",
+				location: "new york, ny"	
+			}, {
+				name: "blind ascetic",
+				location: "hrishikesh, india"	
+			}, {
+				name: "common rat snake",
+				location: "gujarat, india"
+			}];
+			
+			var photos_2 = [{
+				name: "ganpati",
+				location: "mumbai, india"
+			}, {
+				name: "canals",
+				location: "amsterdam, netherlands"	
+			}, {
+				name: "grand central",
+				location: "new york, ny"	
+			}, {
+				name: "light buds",
+				location: "new york, ny"
+			}];
+			
+			/*
+			 * Get the name of the variable instead the value
+			 * 
+			 * Important for using the variable names in console logs;
+			 * 
+			 * for example, foo = 1; window_getVarName(foo) = foo
+			 * 
+			 */
+			function window_getVarName(what)
+			{
+  				for (var name in window)
+  				{
+    				if (window[name]==what)
+    				return(name);
+  				}
+  				return("");
+			}
+			
+			/*
+			 * Concatenates the image folder path and sorts the photos for photo slider.
+			 * 
+			 * @param photoList: the list of photos with name and metadata (including location)
+			 */
+			function sortPhotos(photoList, location){
 				
-				<nav>
-					<!-- Navigation toolbar with stylized navigation button -->
-					<ul>
-						<li><a href="/">Home</a></li> 
-						<!-- placeholder links for future -->
-						<li><a href="./about.html">About</a></li>
-						<li><a href="./contact.html">Contact</a></li> 
-					</ul>
-				</nav>
+				console.log(window_getVarName(photoList));
+				var sortedPhotoList = [];			
 				
-				<!-- placeholder divs for future references -->
-				<!-- The front page of the website would have photoSlider for my work-->
-				<div class="photoSlider">
+				for(var i=0,j=photoList.length; i < j; i++){
+					var photo = photoList[i];
 					
-				</div>
-				<p/>
-				
-				<!-- This section would either have text clips or some other sections -->
-				<div class="description">
-					<p>My text here!!</p>
-				</div>
-			</header>
-			<script>
-				/*
-				 * Variables defined below illustrate my personal resume
-				 */
-				var name = "Rutwij Devashrayee";
-				var age = 25;
-				var jobs = ["Junior Developer, Ontario Financing Authority","Test Developer, CaseWare International Inc."];
-				var skills = {
-					data:["Scraping", "Visuzalization","JavaScript", "Multi-platform Programmin with languages like C#, Java, Python"],
-					audioVisual:["CS6 Suite","Video Production and Editing","Journalistic Photography"],
-					language:["English","Hindi","Urdu","Gujarati"]
-				};
+					if (String(photo.location).search(location) >= 0){
 						
-				console.log("Name: " + name);
-				console.log("Age: " + age)
-				console.log("First Job: " + jobs[0]);
-				console.log(skills.data);
+						var photoPath ="./img/" + photo.name  + ".jpg";
+			  			sortedPhotoList.push(photoPath);
+					
+					} //end of if statement
+				}//end of for loop
 				
-				console.log(skills.audioVisual);
-				skills.audioVisual[3] = "Radio Production";
-				console.log(skills.audioVisual);
-				
-				console.log("Age (as of 2016):" + (age +1));
-				
-			</script>
-			<footer>
-				<p>
-					&copy; Copyright  by Rutwij Devashrayee
-				</p>
-			</footer>
+				console.log(sortedPhotoList);
+				return sortedPhotoList;
+			};
+			
+			var indiaPhotos = sortPhotos(photos, "india");
+			var nyPhotos = sortPhotos(photos_2, "ny");
+		</script>
+		<header>
+			<!-- the h1 tag at the top -->
+			<h1>Personal Website of Rutwij Devashrayee</h1>
+			<!-- the h2 tag at the right beneath it (like a blurb) -->
+			<h2>Assignment for Data Visualization class by Susan E. McGregor</h2>
+		</header>
+		<nav>
+			<!-- Navigation toolbar with stylized navigation button -->
+			<ul>
+				<li><a href="/">Home</a></li>
+				<!-- placeholder links for future -->
+				<li><a href="./about.html">About</a></li>
+				<li><a href="./contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<!-- placeholder divs for future references -->
+		<!-- The front page of the website would have photoSlider for my work-->
+		<div class="photoSlider">
+
 		</div>
-	</body>
+		<p/>
+
+		<!-- This section would either have text clips or some other sections -->
+		<div class="description">
+			<p>
+				My text here!!
+			</p>
+		</div>
+		<footer>
+			<p>
+				&copy; Copyright  by Rutwij Devashrayee
+			</p>
+		</footer>
+		</body>
 </html>
