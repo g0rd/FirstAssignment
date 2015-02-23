@@ -4,7 +4,7 @@
  * Color scheme used to set background color, font color, family and size across the website
  *
  */
-body {
+body, body div {
 	background-color: #D3D347;
 	color: #8F8F0D;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
