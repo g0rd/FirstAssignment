@@ -62,10 +62,20 @@ function drawChart() {
 	// Set chart options
 	var options = {
 		'title' : 'Federal Reserves by Decade',
-		'width' : 800,
+		'width' : '90%',
 		'height' : 600,
-		'orientation' : 'horizontal'
+		'orientation' : 'horizontal',
+		'animation':{ },
+		'backgroundColor' : '#D3D347',
+		'titleTextStyle' : { },
+  		'titlePosition' : 'out',
+  		'legend':{
+			'position': 'none'
+		},
 	};
+	
+	options.animation = animationStyle;
+	options.titleTextStyle = titleTextStyle;
 
 	// Instantiate and draw our chart, passing in some options.
 	var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
