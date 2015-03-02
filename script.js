@@ -53,15 +53,15 @@ function drawChart() {
 	data.addRows(arraysData);
 
 	//Group data according to decades
-	var groupedDate = google.visualization.data.group(data, [2], [{
+	var groupedData = google.visualization.data.group(data, [2], [{
 		'column' : 1,
 		'aggregation' : google.visualization.data.sum,
 		'type' : 'number'
 	}]);
 
-	// Set chart options
-	var options = {
-		'title' : 'Federal Reserves by Decade',
+	// Set chart options for two separate sizes of charts
+	var options_big = {
+		'title' : 'Federal Reserves by Year',
 		'width' : '90%',
 		'height' : 600,
 		'orientation' : 'horizontal',
@@ -72,14 +72,43 @@ function drawChart() {
   		'legend':{
 			'position': 'none'
 		},
+		'hAxis' : { }
 	};
 	
-	options.animation = animationStyle;
-	options.titleTextStyle = titleTextStyle;
-
+	var options_small = {
+		'title' : 'Federal Reserves by Decade',
+		'width' : '90%',
+		'height' : 300,
+		'orientation' : 'horizontal',
+		'backgroundColor' : '#D3D347',
+		'titleTextStyle' : { },
+  		'titlePosition' : 'out',
+  		'legend':{
+			'position': 'none'
+		},
+		'hAxis' : {
+			'ticks' : ["1920s","1940s","1960s","1980s","2000s"]	//This seems to be nor working at the moment woud need to research it
+				//[{v:"1920s", f:'1920s'}, 
+				//{v:"1940s", f:'1940s'},
+				// {v:"1960s", f:'1960s'},
+				//{v:"1980s", f:'1980s'},
+				//{v:"2000s", f:'2000s'}]
+		}
+	};
+	
+	options_small.titleTextStyle = titleTextStyle_small;
+	
+	//options_small.hAxis = hAxisStyle;
 	// Instantiate and draw our chart, passing in some options.
-	var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-	chart.draw(groupedDate, options);
+	var smallChart = new google.visualization.BarChart(document.getElementById('chart_div_small'));
+	smallChart.draw(groupedData, options_small);
+	
+	options_big.animation = animationStyle;
+	options_big.titleTextStyle = titleTextStyle_big;
+	options_big.hAxis = hAxisStyle;
+	var bigChart = new google.visualization.BarChart(document.getElementById('chart_div_big'));
+	data.removeColumn(2);
+	bigChart.draw(data, options_big);
 }
 
 /*
