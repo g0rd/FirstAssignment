@@ -22,46 +22,23 @@ function getDecade(someDate) {
 // draws it.
 function drawChart() {
 
-	obs = fredData.observations;
-	var arraysData = [];
-	for (var i = 0; i < obs.length; i++) {
-		var itemArray = [];
-		
-		//Creating variables in Number format for creating a date
-		//This would come in handy if we want to sort the data by date in later stage
-		var year = Number((obs[i].date).substring(0, 4));
-		var month = Number((obs[i].date).substring(5, 7));
-		var day = Number((obs[i].date).substring(8, 10));
-
-		var date = new Date(year, month, day);
-		var decade = getDecade(year)
-	
-		//Creating a 2D array for individual item
-		itemArray.push(date);
-		itemArray.push(Number(obs[i].value));
-		itemArray.push(decade);
-		
-		//pushing the individual array into a larger array for data processing later
-		arraysData.push(itemArray);
-	}
-
 	// Create the data table.
-	var data = new google.visualization.DataTable();
-	data.addColumn('date', 'Date');
-	data.addColumn('number', 'Value');
-	data.addColumn('string', "Decade")
-	data.addRows(arraysData);
-
-	//Group data according to decades
-	var groupedData = google.visualization.data.group(data, [2], [{
-		'column' : 1,
-		'aggregation' : google.visualization.data.sum,
-		'type' : 'number'
-	}]);
-
+	//data from http://www.census.gov/compendia/statab/2012/tables/12s0695.xls
+	var data = google.visualization.arrayToDataTable([
+		['Race', '2009', '2005'],	
+		['White alone or in combination', 81272, 76327],	
+		['White   alone', 81434, 76546],
+		['White alone (Not Hispanic)', 86276, 81179],
+		['Black alone or in combination', 53228, 48606],
+		['Black alone',	52930, 48448],
+		['Asian alone or in combination', 100562, 88120],
+		['Asian   alone', 101097, 88372],
+		['Hispanic', 54074, 48847]
+	]);
+	
 	// Set chart options for two separate sizes of charts
-	var options_big = {
-		'title' : 'Federal Reserves by Year',
+	var options = {
+		'title' : 'Median Income by Race',
 		'width' : '90%',
 		'height' : 600,
 		'orientation' : 'horizontal',
@@ -74,40 +51,9 @@ function drawChart() {
 		},
 		'hAxis' : { }
 	};
-	
-	var options_small = {
-		'title' : 'Federal Reserves by Decade',
-		'width' : '90%',
-		'height' : 300,
-		'orientation' : 'horizontal',
-		'backgroundColor' : '#D3D347',
-		'titleTextStyle' : { },
-  		'titlePosition' : 'out',
-  		'legend':{
-			'position': 'none'
-		},
-		'hAxis' : {
-			'ticks' : ["1920s","1940s","1960s","1980s","2000s"]	//This seems to be nor working at the moment woud need to research it
-				//[{v:"1920s", f:'1920s'}, 
-				//{v:"1940s", f:'1940s'},
-				// {v:"1960s", f:'1960s'},
-				//{v:"1980s", f:'1980s'},
-				//{v:"2000s", f:'2000s'}]
-		}
-	};
-	
-	options_small.titleTextStyle = titleTextStyle_small;
-	
-	//options_small.hAxis = hAxisStyle;
-	// Instantiate and draw our chart, passing in some options.
-	var smallChart = new google.visualization.BarChart(document.getElementById('chart_div_small'));
-	smallChart.draw(groupedData, options_small);
-	
-	options_big.animation = animationStyle;
-	options_big.titleTextStyle = titleTextStyle_big;
-	options_big.hAxis = hAxisStyle;
-	var bigChart = new google.visualization.BarChart(document.getElementById('chart_div_big'));
-	data.removeColumn(2);
-	bigChart.draw(data, options_big);
+		
+	var chart = new google.visualization.BarChart(document.getElementById('columnchart_material'));
+
+    chart.draw(data, options);
 }
 
