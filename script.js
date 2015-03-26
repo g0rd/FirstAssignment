@@ -11,11 +11,6 @@ google.load('visualization', '1.0', {
 // Set a callback to run when the Google Visualization API is loaded.
 google.setOnLoadCallback(drawChart);
 
-// Input type: Date
-// Return type: string 1920s, 1930s etc
-function getDecade(someDate) {
-	return someDate.toString().substring(0, 3) + "0s";
-}
 
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
@@ -24,32 +19,39 @@ function drawChart() {
 
 	// Create the data table.
 	//data from http://www.census.gov/compendia/statab/2012/tables/12s0695.xls
+	//I did not separate out the data because it is a relatively small dataset.
 	var data = google.visualization.arrayToDataTable([
 		['Race', '2009', '2005'],	
-		['White alone or in combination', 81272, 76327],	
-		['White   alone', 81434, 76546],
-		['White alone (Not Hispanic)', 86276, 81179],
-		['Black alone or in combination', 53228, 48606],
-		['Black alone',	52930, 48448],
-		['Asian alone or in combination', 100562, 88120],
-		['Asian   alone', 101097, 88372],
+		['White +', 81272, 76327],	
+		['White', 81434, 76546],
+		['Non Hispanic White', 86276, 81179],
+		['Black +', 53228, 48606],
+		['Black',	52930, 48448],
+		['Asian +', 100562, 88120],
+		['Asian', 101097, 88372],
 		['Hispanic', 54074, 48847]
+		//['Average', 78538, 73304]	//want to add the trendline for each year
 	]);
 	
-	// Set chart options for two separate sizes of charts
+	// Set chart options
 	var options = {
 		'title' : 'Median Income by Race',
 		'width' : '90%',
 		'height' : 600,
-		'orientation' : 'horizontal',
-		'animation':{ },
+		'orientation' : 'vertical',
 		'backgroundColor' : '#D3D347',
-		'titleTextStyle' : { },
-  		'titlePosition' : 'out',
-  		'legend':{
-			'position': 'none'
+		'titleTextStyle' : { 
+			'fontName' : 'Cambria',
+			'fontSize' : 24
 		},
-		'hAxis' : { }
+  		'titlePosition' : 'out',
+  		'colors': ["#d38d47","#936231"],
+  		'legend':{
+			'position': 'right'
+		},
+		'hAxis' : {minValue: 0}
+		//'seriesType': 'bars', //Wanted to create a average reference line but could not figure it out. 
+		//'series': {7: {type: 'line'}}
 	};
 		
 	var chart = new google.visualization.BarChart(document.getElementById('columnchart_material'));
