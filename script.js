@@ -111,32 +111,3 @@ function drawChart() {
 	bigChart.draw(data, options_big);
 }
 
-/*
- * Deprecated code borne out of experimneting
- * 
- * 
- * 
- *http://api.stlouisfed.org/fred/series/observations?series_id=GNPCA&api_key=abcdefghijklmnopqrstuvwxyz123456&file_type=json
- */
-/*function httpGet(theUrl) {
- var rawFile = new XMLHttpRequest();
- rawFile.open("GET", theUrl, false);
- rawFile.onreadystatechange = function() {
- if (rawFile.readyState === 4) {
- if (rawFile.status === 200 || rawFile.status == 0) {
- var allText = rawFile.responseText;
- alert(allText);
- }
- }
- }
- rawFile.send(null);
-
- return rawFile.responseText;
-
- }
- var jsonData = new File([],"./jsonData.txt");
- var file = new FileReader();
- var jsonText = file.readAsText(jsonData);
- var final = file.result;
- var x = JSON.parse("./fredData.json");
- var obs = [];*/
