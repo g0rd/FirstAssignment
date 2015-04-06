@@ -113,21 +113,47 @@ footer{
 }
 
 .mainQuoteContainer{
-	
+  width: 840px;
+  height: auto;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  margin: 20px 0 0 104px;
+  background: url('http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/2/10/1392043517503/red-quotes.png') 0px 17px no-repeat;
+  padding: 16px 0 16px 50px;
+}
+
+.mainQuoteContainer p {
+	font-size: 30px;
+  	width: 700px;
+  	margin: 0 auto;
+	line-height: 35px;
+    font-family: 'Guardian-Egyp-Web-Light';
+    float: left; 
+    margin-bottom: 10px;
+	text-align: left;
 }
 
 .wholeQuoteContainer{
-	
+  display: inline;
+  position: relative;
+  width: 700px;
+  height: auto;
+  float: left;
+  margin-left: 110px;
 }
 
 .personContainer{
-	
+  display: inline-block;
+  text-align: right;
+  right: 0;
+  color: #000;
+  width: 796px;
+  font-family: 'Helvetica';
+  font-size: 18px;
+  line-height: 20px;
 }
 
-.yearsCleanContainer{
-	
-}
-
-.locationContainer{
-	
+.personContainer span{
+	color: #D61C17;
 }
