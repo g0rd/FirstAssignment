@@ -113,7 +113,7 @@ footer{
 }
 
 .mainQuoteContainer{
-  width: 840px;
+  width: 95%;
   height: auto;
   float: left;
   display: inline-block;
@@ -128,11 +128,24 @@ footer{
   	width: 700px;
   	margin: 0 auto;
 	line-height: 35px;
-    font-family: 'Guardian-Egyp-Web-Light';
     float: left; 
     margin-bottom: 10px;
 	text-align: left;
 }
+
+.readMore {
+	text-align: left;
+	font-size: 1em;
+	width: 95%;
+	margin-left: 150px;
+	display: inline-block;
+	float: left;
+	line-height: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: static;
+}
+
 
 .wholeQuoteContainer{
   display: inline;
@@ -156,4 +169,15 @@ footer{
 
 .personContainer span{
 	color: #D61C17;
+}
+
+
+.moreInfo {
+	display:none;
+	width: 95%;
+	margin-left: 40px;
+	padding-top: 20px;
+
+.expanded .moreInfo {
+	display: block;
 }
